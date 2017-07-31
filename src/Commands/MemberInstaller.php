@@ -10,6 +10,7 @@ use Baytek\Laravel\Users\Members\Models\Member;
 use Baytek\Laravel\Users\Members\MemberServiceProvider;
 
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 use Artisan;
 use DB;
