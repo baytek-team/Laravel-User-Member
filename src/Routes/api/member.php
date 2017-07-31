@@ -45,9 +45,6 @@ Route::get('/first/{letter}', 'MemberController@byFirstName');
 // Get members by first name letter
 Route::get('/last/{letter}', 'MemberController@byLastName');
 
-// Get a specific member
-Route::get('/{member}', 'MemberController@member');
-
 /*
 |--------------------------------------------------------------------------
 | Current member routes
@@ -68,3 +65,14 @@ Route::post('/{member}/update', 'MemberController@update');
 
 // Update a member's password
 Route::post('/{member}/update/password', 'MemberController@updatePassword');
+
+/*
+|--------------------------------------------------------------------------
+| Other member routes
+|--------------------------------------------------------------------------
+|
+|
+*/
+
+// Get a specific member
+Route::get('/{member}', 'MemberController@member');
