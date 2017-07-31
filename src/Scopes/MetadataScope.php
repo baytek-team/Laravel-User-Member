@@ -1,6 +1,6 @@
 <?php
 
-namespace Baytek\Laravel\Users\Members\Scope;
+namespace Baytek\Laravel\Users\Members\Scopes;
 
 use Illuminate\Database\Eloquent\Scope;
 use Illuminate\Database\Eloquent\Model;
