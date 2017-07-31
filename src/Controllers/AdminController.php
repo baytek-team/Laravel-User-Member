@@ -110,7 +110,7 @@ class AdminController extends Controller
         $member = new Member($request->all());
         $member->name = $request->meta['first_name'] . ' ' . $request->meta['last_name'];
         $member->password = bcrypt(Hash::make(str_random(8)));
-        $member->onBit(User::APPROVED);
+        $member->onBit(Member::APPROVED);
         $member->save();
 
         //Save the user meta
@@ -311,15 +311,15 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function approve(Request $request, User $user)
+    public function approve(Request $request, Member $member)
     {
-        $this->authorize('update', $user);
+        $this->authorize('update', $member);
 
-        $user->offBit(User::DELETED);
-        $user->onBit(User::APPROVED)->update();
+        $member->offBit(Member::DELETED);
+        $member->onBit(Member::APPROVED)->update();
 
         // Update the cache
-        event(new UserEvent($user));
+        event(new UserEvent($member));
 
         return redirect()->back();
     }
@@ -330,12 +330,12 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function decline(Request $request, User $user)
+    public function decline(Request $request, Member $member)
     {
-        $this->authorize('update', $user);
+        $this->authorize('update', $member);
 
-        $user->offBit(User::APPROVED);
-        $user->onBit(User::DELETED)->update();
+        $member->offBit(Member::APPROVED);
+        $member->onBit(Member::DELETED)->update();
 
         return redirect()->back();
     }
