@@ -1,6 +1,6 @@
 <?php
 
-namespace Baytek\Laravel\Users\Members\Controllers;
+namespace Baytek\Laravel\Users\Members\Controllers\Api;
 
 use Baytek\Laravel\Users\Members\Models\File;
 use Baytek\Laravel\Users\Members\Models\Member;
@@ -14,7 +14,7 @@ use ReflectionClass;
 use Route;
 use Storage;
 use View;
-use Image;
+use Intervention\Image\Facades\Image;
 /**
  * The Content Controller is suppose to act as an abstract class that facilitates
  * rendering and saving of common resource tables.
