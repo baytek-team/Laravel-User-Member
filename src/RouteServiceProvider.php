@@ -53,7 +53,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         $routes = 'routes/admin/member.php';
         if(file_exists(base_path($routes))){
-            Route::prefix('admin/members')
+            Route::prefix('admin') //Just use the admin prefix, so we can properly define the resource routes
                  ->middleware(['web', 'auth'])
                  ->namespace(Controllers::class)
                  ->group(base_path($routes));

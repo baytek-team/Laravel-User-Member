@@ -236,7 +236,7 @@ class AdminController extends Controller
         flash('Password reset email sent!');
 
         // Go to the edit user page in the admin
-        return redirect(route('member.edit', $user));
+        return redirect(route('members.edit', $user));
     }
 
     /**
