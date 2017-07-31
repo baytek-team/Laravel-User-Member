@@ -1,6 +1,6 @@
 <?php
 
-namespace Baytek\Laravel\Users\MembersPolicies;
+namespace Baytek\Laravel\Users\Members\Policies;
 
 use Baytek\Laravel\Users\User;
 use Baytek\Laravel\Users\Policies\UserPolicy;

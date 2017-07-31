@@ -4,13 +4,9 @@ namespace Baytek\Laravel\Users\Members\Controllers;
 
 use Baytek\Laravel\Users\Members\Models\File;
 use Baytek\Laravel\Users\Members\Models\Member;
-use Baytek\Laravel\Users\UserMeta;
+use Baytek\Laravel\Users\Members\Controllers\Controller;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 
 use App;
 use DB;
@@ -33,8 +29,6 @@ use Image;
  */
 class AvatarController extends Controller
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
     protected $sizes = [60, 120, 360];
 
     /**
