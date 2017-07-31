@@ -28,7 +28,7 @@ class FakeDataSeeder extends Seeder
             //Member info
             $first_name = $faker->firstName;
             $last_name = $faker->lastName;
-            $email = $faker->safeEmail($first_name.' '.$last_name);
+            $email = $faker->unique()->safeEmail($first_name.' '.$last_name);
             $meta = [
                 'first_name' => $first_name,
                 'last_name' => $last_name,
