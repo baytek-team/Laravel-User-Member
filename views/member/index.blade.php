@@ -1,4 +1,4 @@
-@extends('member::template')
+@extends('member::member.template')
 
 {{-- @section('page.head.menu')
     <div class="ui secondary menu">
