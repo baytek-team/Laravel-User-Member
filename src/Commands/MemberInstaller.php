@@ -7,7 +7,7 @@ use Baytek\Laravel\Content\Commands\Installer;
 use Baytek\Laravel\Users\Members\Seeders\MemberSeeder;
 use Baytek\Laravel\Users\Members\Seeders\FakeDataSeeder;
 use Baytek\Laravel\Users\Members\Models\Member;
-use Baytek\Laravel\Users\Members\ServiceProvider;
+use Baytek\Laravel\Users\Members\MemberServiceProvider;
 
 use Spatie\Permission\Models\Permission;
 
@@ -18,7 +18,7 @@ class MemberInstaller extends Installer
 {
     public $name = 'Member';
     protected $protected = ['Member'];
-    protected $provider = ServiceProvider::class;
+    protected $provider = MemberServiceProvider::class;
     protected $model = Member::class;
     protected $seeder = MemberSeeder::class;
     protected $fakeSeeder = FakeDataSeeder::class;

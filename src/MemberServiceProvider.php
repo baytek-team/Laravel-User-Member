@@ -7,11 +7,9 @@ use Baytek\Laravel\Users\Members\Policies\MemberPolicy;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider;
 
-
-
 use Route;
 
-class ServiceProvider extends AuthServiceProvider
+class MemberServiceProvider extends AuthServiceProvider
 {
 
     /**
