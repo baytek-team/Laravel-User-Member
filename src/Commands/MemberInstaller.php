@@ -22,10 +22,25 @@ class MemberInstaller extends Installer
     protected $model = Member::class;
     protected $seeder = MemberSeeder::class;
     protected $fakeSeeder = FakeDataSeeder::class;
+    protected $migrationPath = __DIR__.'/../resources/Database/Migrations';
 
     public function shouldPublish()
     {
         return true;
+    }
+
+    public function shouldMigrate()
+    {
+        $pluginTables = [
+            env('DB_PREFIX', '').'users',
+            env('DB_PREFIX', '').'user_meta',
+            env('DB_PREFIX', '').'roles',
+            env('DB_PREFIX', '').'permissions',
+        ];
+
+        return collect(array_map('reset', DB::select('SHOW TABLES')))
+            ->intersect($pluginTables)
+            ->isEmpty();
     }
 
     public function shouldSeed()
