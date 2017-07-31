@@ -8,7 +8,7 @@ use Hash;
 
 use Baytek\Laravel\Users\Members\Models\Member;
 use Baytek\Laravel\Users\Members\Scopes\ApprovedMemberScope;
-use Baytek\Laravel\Users\Members\UserEvent;
+use Baytek\Laravel\Users\Members\Events\UserEvent;
 use Baytek\Laravel\Users\Members\Roles\Member as MemberRole;
 use Baytek\Laravel\Users\Members\Requests\MemberRequest;
 use Baytek\Laravel\Users\Members\Controllers\Controller;
