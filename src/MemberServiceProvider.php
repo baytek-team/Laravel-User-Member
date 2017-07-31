@@ -33,7 +33,6 @@ class MemberServiceProvider extends AuthServiceProvider
     {
         $this->registerPolicies();
 
-        $this->loadRoutesFrom(__DIR__.'/Routes.php');
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         $this->loadViewsFrom(__DIR__.'/../views', 'members');
 
@@ -41,6 +40,11 @@ class MemberServiceProvider extends AuthServiceProvider
         $this->publishes([
             __DIR__.'/../views' => resource_path('views/vendor/members'),
         ], 'views');
+
+        // Publish routes to the App
+        $this->publishes([
+            __DIR__.'/../src/Routes' => base_path('routes'),
+        ], 'routes');
     }
 
     /**
