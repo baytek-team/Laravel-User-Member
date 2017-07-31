@@ -8,8 +8,13 @@ use Baytek\Laravel\Users\User;
 
 use Illuminate\Support\Facades\Request;
 
-class Member extends User
+use Baytek\LaravelStatusBit\Statusable;
+use Baytek\LaravelStatusBit\Interfaces\StatusInterface;
+
+class Member extends User implements StatusInterface
 {
+    use Statusable;
+
     protected $table = 'users';
 
     public $meta = [
