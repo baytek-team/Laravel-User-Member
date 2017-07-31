@@ -137,7 +137,7 @@ class AdminController extends Controller
 
         return redirect(route(
             Auth::user()->can('View Member') ?
-                'members::member.index' :
+                'members.index' :
                 'admin.index'
             )
         );
@@ -214,7 +214,7 @@ class AdminController extends Controller
 
         return redirect(route(
             Auth::user()->can('View Member') ?
-                'members::member.index' :
+                'members.index' :
                 'admin.index'
             )
         );
