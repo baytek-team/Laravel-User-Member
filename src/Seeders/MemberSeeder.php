@@ -1,11 +1,11 @@
 <?php
-namespace Baytek\Laravel\Users\Seeders;
+namespace Baytek\Laravel\Users\Members\Seeders;
 
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
-class RoleSeeder extends Seeder
+class MemberSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        foreach(['root', 'administrator', 'editor', 'member'] as $role) {
+        foreach(['member'] as $role) {
             Role::create(['name' => ucfirst($role)]);
         }
 
