@@ -17,12 +17,5 @@ class MemberSeeder extends Seeder
         foreach(['member'] as $role) {
             Role::create(['name' => ucfirst($role)]);
         }
-
-        foreach(['role'] as $permission) {
-            Permission::create(['name' => ucwords('view '   . $permission)]);
-            Permission::create(['name' => ucwords('create ' . $permission)]);
-            Permission::create(['name' => ucwords('update ' . $permission)]);
-            Permission::create(['name' => ucwords('delete ' . $permission)]);
-        }
     }
 }
