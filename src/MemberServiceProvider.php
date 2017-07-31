@@ -45,6 +45,10 @@ class MemberServiceProvider extends AuthServiceProvider
         $this->publishes([
             __DIR__.'/../src/Routes' => base_path('routes'),
         ], 'routes');
+
+        $this->publishes([
+            __DIR__.'/../config/member.php' => config_path('member.php'),
+        ], 'config');
     }
 
     /**
