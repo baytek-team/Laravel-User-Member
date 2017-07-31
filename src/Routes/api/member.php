@@ -34,19 +34,19 @@ Route::get('/avatar/{avatar}/size/{size}', 'AvatarController@showThumbnail')->na
 */
 
 // Gets a list of all members
-Route::get('/', 'Api\MemberController@all');
+Route::get('/', 'MemberController@all');
 
 // Gets sorted lists of members by first name, last name, and the lists of letters
-Route::get('/letters', 'Api\MemberController@letters');
+Route::get('/letters', 'MemberController@letters');
 
 // Get members by first name letter
-Route::get('/first/{letter}', 'Api\MemberController@byFirstName');
+Route::get('/first/{letter}', 'MemberController@byFirstName');
 
 // Get members by first name letter
-Route::get('/last/{letter}', 'Api\MemberController@byLastName');
+Route::get('/last/{letter}', 'MemberController@byLastName');
 
 // Get a specific member
-Route::get('/{member}', 'Api\MemberController@member');
+Route::get('/{member}', 'MemberController@member');
 
 /*
 |--------------------------------------------------------------------------
@@ -58,13 +58,13 @@ Route::get('/{member}', 'Api\MemberController@member');
 */
 
 // Get the logged in member
-Route::get('/profile', 'Api\MemberController@profile');
+Route::get('/profile', 'MemberController@profile');
 
 // Reset password request from frontend of app
-Route::post('/{member}/password/email', 'Api\MemberController@sendPasswordResetLink')->name('api.members.password.email');
+Route::post('/{member}/password/email', 'MemberController@sendPasswordResetLink')->name('api.members.password.email');
 
 // Update a member's profile details
-Route::post('/{member}/update', 'Api\MemberController@update');
+Route::post('/{member}/update', 'MemberController@update');
 
 // Update a member's password
-Route::post('/{member}/update/password', 'Api\MemberController@updatePassword');
+Route::post('/{member}/update/password', 'MemberController@updatePassword');
