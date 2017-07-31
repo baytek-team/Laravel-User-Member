@@ -2,7 +2,7 @@
 
 @section('content')
 <div id="registration" class="et_pb_column ui container">
-    <form class="ui form" action="{{action('ContentTypes\Members\Controllers\AdminController@store')}}" method="POST">
+    <form class="ui form" action="{{route('members.store')}}" method="POST">
         {{ csrf_field() }}
 
         @include('members::member.form')
