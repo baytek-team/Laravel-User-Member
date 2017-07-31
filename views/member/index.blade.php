@@ -1,12 +1,12 @@
-@extends('member::member.template')
+@extends('members::member.template')
 
-{{-- @section('page.head.menu')
+@section('page.head.menu')
     <div class="ui secondary menu">
-        <a class="item" href="{{ action('ContentTypes\Members\Controllers\AdminController@create') }}">
+        <a class="item" href="{{ route('members.create') }}">
             <i class="user add icon"></i>{{ ___('Add Member') }}
         </a>
     </div>
-@endsection --}}
+@endsection
 
 @section('content')
 <div class="ui text menu">
@@ -14,7 +14,7 @@
         <i class="filter icon"></i> {{ ___('Filter By') }}
     </div>
     <a class="item @if($filter && $filter == 'active') active @endif" href="{{ route('members.index') }}">{{ ___('Active') }}</a>
-    {{-- <a class="item @if($filter && $filter == 'pending') active @endif" href="{{ route('members.pending') }}">{{ ___('Pending') }}</a> --}}
+    <a class="item @if($filter && $filter == 'pending') active @endif" href="{{ route('members.pending') }}">{{ ___('Pending') }}</a>
     <a class="item @if($filter && $filter == 'deleted') active @endif" href="{{ route('members.deleted') }}">{{ ___('Deleted') }}</a>
 
     <div class="right menu">
