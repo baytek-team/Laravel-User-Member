@@ -22,7 +22,7 @@ class EventServiceProvider extends Provider
      * @var array
      */
     protected $subscribe = [
-        Baytek\Laravel\Users\Members\Listeners\UserNotificationSubscriber::class,
+        Listeners\UserNotificationSubscriber::class,
     ];
 
     /**
