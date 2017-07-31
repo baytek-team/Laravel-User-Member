@@ -23,7 +23,6 @@ use Baytek\Laravel\Users\Roles\Root;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
-use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
