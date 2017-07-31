@@ -59,7 +59,7 @@ class AdminController extends Controller
                     ->orderBy('name', 'asc')
                     ->paginate();
 
-        return view('admin.members.index', [
+        return view('members::member.index', [
             'members' => $members,
             'filter' => 'active'
         ]);
@@ -75,7 +75,7 @@ class AdminController extends Controller
         // $this->authorize('view', Member::class);
         $this->authorize('View Member');
 
-        return view('admin.members.administrators', [
+        return view('members::member.administrators', [
             'members' => User::role([Root::ROLE, Administrator::ROLE])
                 ->orderBy('name', 'asc')
                 ->paginate(),
@@ -93,7 +93,7 @@ class AdminController extends Controller
     {
         $this->authorize('Create Member');
 
-        return view('admin.members.create', [
+        return view('members::member.create', [
             'user' => new Member,
             'roles' => Role::all(),
             'users' => User::all(),
@@ -137,7 +137,7 @@ class AdminController extends Controller
 
         return redirect(route(
             Auth::user()->can('View Member') ?
-                'members.index' :
+                'members::member.index' :
                 'admin.index'
             )
         );
@@ -153,7 +153,7 @@ class AdminController extends Controller
     {
         $this->authorize('update', $member);
 
-        return view('admin.members.edit', [
+        return view('members::member.edit', [
             'user' => $member,
             'roles' => Role::all(),
             'users' => User::all(),
@@ -169,7 +169,7 @@ class AdminController extends Controller
      */
     public function roles(User $user)
     {
-        return view('User::user.roles', [
+        return view('users::user.roles', [
             'user' => $user,
             'roles' => Role::all(),
             'permissions' => Permission::all(),
@@ -214,7 +214,7 @@ class AdminController extends Controller
 
         return redirect(route(
             Auth::user()->can('View Member') ?
-                'members.index' :
+                'members::member.index' :
                 'admin.index'
             )
         );
@@ -236,7 +236,7 @@ class AdminController extends Controller
         flash('Password reset email sent!');
 
         // Go to the edit user page in the admin
-        return redirect(route('members.edit', $user));
+        return redirect(route('member.edit', $user));
     }
 
     /**
@@ -266,7 +266,7 @@ class AdminController extends Controller
                     ->orderBy('name', 'asc')
                     ->paginate();
 
-        return view('admin.members.index', [
+        return view('members::member.index', [
             'members' => $members,
             'filter' => 'deleted'
         ]);
@@ -299,7 +299,7 @@ class AdminController extends Controller
                     ->orderBy('name', 'asc')
                     ->paginate();
 
-        return view('admin.members.index', [
+        return view('members::member.index', [
             'members' => $members,
             'filter' => 'pending'
         ]);
