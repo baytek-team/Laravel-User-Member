@@ -30,7 +30,7 @@ class MemberController extends Controller
 
 	public function all()
     {
-        return Member::with(['committees', 'meta'])->role('member')->get();
+        return Member::with('meta')->role('member')->get();
     }
 
     public function letters()
@@ -63,7 +63,6 @@ class MemberController extends Controller
 
     public function byFirstName($letter) {
         return Member::select('users.id','users.name','users.status','users.created_at','users.updated_at')
-            ->with('committees')
             ->role('member')
             ->whereMetadata('first_name', strtoupper($letter).'%', 'like')
             ->orderByMeta('first_name', 'asc')
@@ -72,7 +71,6 @@ class MemberController extends Controller
 
     public function byLastName($letter) {
         return Member::select('users.id','users.name','users.status','users.created_at','users.updated_at')
-            ->with('committees')
             ->role('member')
             ->whereMetadata('last_name', strtoupper($letter).'%', 'like')
             ->orderByMeta('last_name', 'asc')
@@ -86,7 +84,7 @@ class MemberController extends Controller
 
     public function profile()
     {
-        return Member::withMeta(true)->with(['committees', 'roles'])->find(\Auth::user()->id)->makeVisible('email');
+        return Member::withMeta(true)->with('roles')->find(\Auth::user()->id)->makeVisible('email');
     }
 
     /**
