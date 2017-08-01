@@ -40,7 +40,7 @@ class FakeDataSeeder extends Seeder
 
         //Save the user
         $admin = new Member();
-        $admin->email = 'baytek_admin@example.com';
+        $admin->email = 'admin@example.com';
         $admin->name = 'Demo Admin';
         $admin->password = bcrypt('password');
         $admin->save();
@@ -73,7 +73,7 @@ class FakeDataSeeder extends Seeder
 
         //Save the user
         $member = new Member();
-        $member->email = 'baytek_member@example.com';
+        $member->email = 'member@example.com';
         $member->name = 'Demo Member';
         $member->password = bcrypt('password');
         $member->save();
