@@ -25,7 +25,7 @@ class MemberSeeder extends Seeder
                 'type' => 'route',
                 'class' => 'item',
                 'append' => '</span>',
-                'prepend' => '<i class="users icon"></i><span class="collapseable-text">',
+                'prepend' => '<i class="left users icon"></i><span class="collapseable-text">',
             ],
             'relations' => [
                 ['content-type', 'menu-item'],
@@ -40,7 +40,7 @@ class MemberSeeder extends Seeder
                 'type' => 'route',
                 'class' => 'item',
                 'append' => '</span>',
-                'prepend' => '<i class="spy icon"></i><span class="collapseable-text">',
+                'prepend' => '<i class="left spy icon"></i><span class="collapseable-text">',
             ],
             'relations' => [
                 ['content-type', 'menu-item'],
