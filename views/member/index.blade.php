@@ -45,13 +45,13 @@
                     <div class="ui text compact menu">
                         @can('update', $member)
                         <a href="{{ route('members.edit', ['member' => $member]) }}" class="item">
-                            <i class="pencil icon"></i> {{ ___('Edit') }}
+                            <i class="pencil icon"></i> {{-- {{ ___('Edit') }} --}}
                         </a>
                         @endcan
 
                         @if (Auth::user()->hasRole([\Baytek\Laravel\Users\Roles\Root::ROLE]))
                             <a class="item" href="{{ route('user.roles', ['user' => $member]) }}">
-                                <i class="user icon"></i> {{ ___('Roles') }}
+                                <i class="user icon"></i>{{--  {{ ___('Roles') }} --}}
                             </a>
                         @endif
 
@@ -69,7 +69,7 @@
                             @endif
 
                             @if ($filter != 'deleted')
-                                @button(___('Delete'), [
+                                @button('', [
                                     'method' => 'post',
                                     'location' => 'members.decline',
                                     'type' => 'route',
