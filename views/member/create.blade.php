@@ -1,7 +1,6 @@
 @extends('members::member.template')
 
 @section('content')
-<div id="registration" class="et_pb_column ui container">
     <form class="ui form" action="{{route('members.store')}}" method="POST">
         {{ csrf_field() }}
 
@@ -16,8 +15,5 @@
                 {{ ___('Create') }}
             </button>
         </div>
-
     </form>
-</div>
-
 @endsection

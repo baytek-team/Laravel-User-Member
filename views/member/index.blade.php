@@ -1,35 +1,34 @@
 @extends('members::member.template')
 
 @section('page.head.menu')
-    <div class="ui secondary menu">
-        <a class="item" href="{{ route('members.create') }}">
-            <i class="user add icon"></i>{{ ___('Add Member') }}
-        </a>
-    </div>
-@endsection
+    <div class="ui secondary menu contextual">
+        <div class="header item">
+            <i class="filter icon"></i> {{ ___('Filter By') }}
+        </div>
+        <a class="item @if($filter && $filter == 'active') active @endif" href="{{ route('members.index') }}">{{ ___('Active') }}</a>
+        <a class="item @if($filter && $filter == 'pending') active @endif" href="{{ route('members.pending') }}">{{ ___('Pending') }}</a>
+        <a class="item @if($filter && $filter == 'deleted') active @endif" href="{{ route('members.deleted') }}">{{ ___('Deleted') }}</a>
 
-@section('content')
-<div class="ui text menu">
-    <div class="header item">
-        <i class="filter icon"></i> {{ ___('Filter By') }}
-    </div>
-    <a class="item @if($filter && $filter == 'active') active @endif" href="{{ route('members.index') }}">{{ ___('Active') }}</a>
-    <a class="item @if($filter && $filter == 'pending') active @endif" href="{{ route('members.pending') }}">{{ ___('Pending') }}</a>
-    <a class="item @if($filter && $filter == 'deleted') active @endif" href="{{ route('members.deleted') }}">{{ ___('Deleted') }}</a>
-
-    <div class="right menu">
         <div class="item">
             <form class="{{ count($errors) != 0 ? ' error' : '' }}" method="GET">
                 <div class="ui left icon right action input">
                     <input type="text" placeholder="{{ ___('Enter search query') }}" name="search" value="{{ collect(Request::instance()->query)->get('search') }}">
                     <i class="search icon"></i>
-                    <button type="submit" class="ui primary button">{{ ___('Search') }}</button>
+                    <button type="submit" class="ui button">{{ ___('Search') }}</button>
                 </div>
             </form>
         </div>
+
+        <div class="item">
+            <a class="ui primary button" href="{{ route('members.create') }}">
+                <i class="user add icon"></i>{{ ___('Add Member') }}
+            </a>
+        </div>
     </div>
-</div>
-<table class="ui selectable table">
+@endsection
+
+@section('content')
+<table class="ui selectable very basic table">
     <thead>
         <tr>
             <th>{{ ___('Name') }}</th>
