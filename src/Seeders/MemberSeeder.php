@@ -31,21 +31,6 @@ class MemberSeeder extends Seeder
                 ['content-type', 'menu-item'],
                 ['parent-id', 'member-menu'],
             ]
-        ],
-        [
-            'key' => 'member-admin-index',
-            'title' => 'Administrators',
-            'content' => 'members.adminindex',
-            'meta' => [
-                'type' => 'route',
-                'class' => 'item',
-                'append' => '</span>',
-                'prepend' => '<i class="left spy icon"></i><span class="collapseable-text">',
-            ],
-            'relations' => [
-                ['content-type', 'menu-item'],
-                ['parent-id', 'member-menu'],
-            ]
         ]
     ];
 
