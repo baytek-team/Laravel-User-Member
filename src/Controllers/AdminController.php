@@ -135,6 +135,8 @@ class AdminController extends Controller
         // Update the cache
         event(new UserEvent($member));
 
+        flash('Member Created');
+
         return redirect(route(
             Auth::user()->can('View Member') ?
                 'members.index' :
@@ -211,6 +213,8 @@ class AdminController extends Controller
 
         // Update the cache
         event(new UserEvent($user));
+
+        flash('Member Updated');
 
         return redirect(route(
             Auth::user()->can('View Member') ?
@@ -321,6 +325,8 @@ class AdminController extends Controller
         // Update the cache
         event(new UserEvent($member));
 
+        flash('Member Approved');
+
         return redirect()->back();
     }
 
@@ -336,6 +342,8 @@ class AdminController extends Controller
 
         $member->offBit(Member::APPROVED);
         $member->onBit(Member::DELETED)->update();
+
+        flash('Member Deleted');
 
         return redirect()->back();
     }
