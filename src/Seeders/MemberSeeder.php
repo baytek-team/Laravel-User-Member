@@ -26,6 +26,7 @@ class MemberSeeder extends Seeder
                 'class' => 'item',
                 'append' => '</span>',
                 'prepend' => '<i class="left users icon"></i><span class="collapseable-text">',
+                'permission' => 'View Member'
             ],
             'relations' => [
                 ['content-type', 'menu-item'],

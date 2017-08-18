@@ -42,9 +42,11 @@
                 <td>{{ $member->email }}</td>
                 <td class="collapsing right aligned">
                     <div class="ui text compact menu">
+                        @can('Update Member')
                         <a href="{{ route('members.edit', ['member' => $member]) }}" class="item">
                             <i class="pencil icon"></i> {{ ___('Edit') }}
                         </a>
+                        @endcan
 
                         @if (Auth::user()->hasRole([\Baytek\Laravel\Users\Roles\Root::ROLE]))
                             <a class="item" href="{{ route('user.roles', ['user' => $member]) }}">

@@ -19,11 +19,13 @@
             </form>
         </div>
 
+        @can('Create Member')
         <div class="item">
             <a class="ui primary button" href="{{ route('members.create') }}">
                 <i class="user add icon"></i>{{ ___('Add Member') }}
             </a>
         </div>
+        @endcan
     </div>
 @endsection
 
@@ -70,6 +72,7 @@
                                 @endif
 
                                 @if ($filter != 'deleted')
+                                    @can('Delete Member')
                                     @button('', [
                                         'method' => 'post',
                                         'location' => 'members.decline',
@@ -79,6 +82,7 @@
                                         'prepend' => '<i class="delete icon"></i>',
                                         'model' => $member,
                                     ])
+                                    @endcan
                                 @endif
                             @endcan
                         </div>
