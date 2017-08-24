@@ -19,6 +19,6 @@ class ApprovedMemberScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        $builder->withStatus('users', $model::APPROVED);
+        $builder->withStatus($model::APPROVED);
     }
 }

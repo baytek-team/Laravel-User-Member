@@ -93,7 +93,7 @@ class Member extends User implements StatusInterface
      */
     public function scopePending($query)
     {
-        return $query->withStatus('users', ['exclude' => [Member::APPROVED, Member::DELETED]]);
+        return $query->withStatus(['exclude' => [Member::APPROVED, Member::DELETED]]);
     }
 
     /**
@@ -104,7 +104,7 @@ class Member extends User implements StatusInterface
      */
     public function scopeApproved($query)
     {
-        return $query->withStatus('users', Member::APPROVED);
+        return $query->withStatus(Member::APPROVED);
     }
 
     /**
@@ -115,7 +115,7 @@ class Member extends User implements StatusInterface
      */
     public function scopeDeclined($query)
     {
-        return $query->withStatus('users', Member::DELETED);
+        return $query->withStatus(Member::DELETED);
     }
 
     /**
