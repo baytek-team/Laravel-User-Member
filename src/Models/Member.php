@@ -8,8 +8,8 @@ use Baytek\Laravel\Users\User;
 
 use Illuminate\Support\Facades\Request;
 
-use Baytek\LaravelStatusBit\Statusable;
-use Baytek\LaravelStatusBit\Interfaces\StatusInterface;
+use Baytek\Laravel\StatusBit\Statusable;
+use Baytek\Laravel\StatusBit\Interfaces\StatusInterface;
 
 class Member extends User implements StatusInterface
 {
