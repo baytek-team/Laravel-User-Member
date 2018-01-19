@@ -46,6 +46,7 @@ class AvatarController extends Controller
         $path = $uploaded->store('avatars');
 
         $file = new File([
+            'status' => File::EXCLUDED,
             'key' => str_slug($originalName) . '_' . date('Y-m-d'),
             'language' => $request->language,
             'title' => $originalName,

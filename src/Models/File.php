@@ -6,6 +6,7 @@ use Baytek\Laravel\Content\Models\Content;
 
 class File extends Content
 {
+    const EXCLUDED = 2 ** 9;  // Exclude from search
 
 	/**
 	 * Content keys that will be saved to the relation tables
