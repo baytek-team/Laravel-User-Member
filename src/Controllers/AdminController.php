@@ -336,8 +336,10 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function decline(Request $request, Member $member)
+    public function decline(Request $request, $id)
     {
+        $member = Member::find($id);
+        
         $this->authorize('update', $member);
 
         $member->offBit(Member::APPROVED);
