@@ -317,7 +317,7 @@ class AdminController extends Controller
      */
     public function approve(Request $request, $id)
     {
-        $member = Member::find($id);
+        $member = Member::withoutGlobalScopes()->find($id);
 
         $this->authorize('update', $member);
 
