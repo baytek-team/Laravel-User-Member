@@ -315,8 +315,10 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function approve(Request $request, Member $member)
+    public function approve(Request $request, $id)
     {
+        $member = Member::find($id);
+
         $this->authorize('update', $member);
 
         $member->offBit(Member::DELETED);
