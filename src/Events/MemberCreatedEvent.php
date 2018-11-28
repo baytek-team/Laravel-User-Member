@@ -14,20 +14,18 @@ class MemberCreatedEvent implements ShouldBroadcast
     use InteractsWithSockets, SerializesModels;
 
     public $user;
+    public $request;
+
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct($user, $request)
     {
         $this->user = $user;
+        $this->request = $request;
     }
-
-    // public function broadcastAs()
-    // {
-    //     return 'user.update';
-    // }
 
     /**
      * Get the channels the event should broadcast on.

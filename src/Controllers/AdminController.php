@@ -137,7 +137,7 @@ class AdminController extends Controller
         event(new UserEvent($member));
 
         // Advertise the new member to anyone who might be interested
-        event(new MemberCreatedEvent($member));
+        event(new MemberCreatedEvent($member, $request));
 
         flash('Member Created');
 
