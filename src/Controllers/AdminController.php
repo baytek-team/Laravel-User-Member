@@ -8,6 +8,7 @@ use Hash;
 
 use Baytek\Laravel\Users\Members\Models\Member;
 use Baytek\Laravel\Users\Members\Scopes\ApprovedMemberScope;
+use Baytek\Laravel\Users\Members\Events\MemberCreatedEvent;
 use Baytek\Laravel\Users\Members\Events\UserEvent;
 use Baytek\Laravel\Users\Members\Roles\Member as MemberRole;
 use Baytek\Laravel\Users\Members\Requests\MemberRequest;
@@ -134,6 +135,9 @@ class AdminController extends Controller
 
         // Update the cache
         event(new UserEvent($member));
+
+        // Advertise the new member to anyone who might be interested
+        event(new MemberCreatedEvent($member));
 
         flash('Member Created');
 
