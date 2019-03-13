@@ -45,7 +45,6 @@ class Member extends User implements StatusInterface
         }
 
         static::addGlobalScope(new ApprovedMemberScope);
-
     }
 
 	public function getRouteKeyName()

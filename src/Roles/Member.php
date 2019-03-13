@@ -17,4 +17,15 @@ class Member extends Role
 	{
 		parent::__construct($user);
 	}
+
+	/**
+     * Get all users of the role type
+     * @return Collection Users
+     */
+    public static function users()
+    {
+        return \Baytek\Laravel\Users\Members\Models\Member::whereHas('roles', function ($query) {
+            $query->where('roles.name', '=', static::ROLE);
+        });
+    }
 }
