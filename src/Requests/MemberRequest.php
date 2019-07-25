@@ -23,8 +23,17 @@ class MemberRequest extends FormRequest
      */
     public function rules()
     {
+        $id = 0;
+
+        if ($this->route('user')) {
+            $id = $this->route('user');
+        }
+        else if ($this->route('member')) {
+            $id = $this->route('member');
+        }
+
         return [
-            'email' => 'sometimes|required|email|max:255',
+            'email' => 'sometimes|required|email|max:255|unique:users,email,'.$id,
             'meta.first_name' => 'required|max:127',
             'meta.last_name' => 'required|max:127',
         ];
