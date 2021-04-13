@@ -6,6 +6,7 @@ use Baytek\Laravel\Users\Members\Scopes\ApprovedMemberScope;
 use Baytek\Laravel\Users\Members\Scopes\MetadataScope;
 use Baytek\Laravel\Users\User;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Request;
 
 use Baytek\Laravel\StatusBit\Statusable;
@@ -13,7 +14,7 @@ use Baytek\Laravel\StatusBit\Interfaces\StatusInterface;
 
 class Member extends User implements StatusInterface
 {
-    use Statusable;
+    use Statusable, SoftDeletes;
 
     protected $table = 'users';
 
