@@ -49,14 +49,14 @@ class AdminController extends Controller
 
         // Get the members based on the search criteria
         $members = (!empty($search))
-            ? Member::role(MemberRole::ROLE)
-                    ->where('name', 'like', [$search])
+            // ? Member::role(MemberRole::ROLE)
+            ? Member::where('name', 'like', [$search])
                     ->orWhere('email', 'like', [$search])
                     ->approved()
                     ->orderBy('name', 'asc')
                     ->paginate()
-            : Member::role(MemberRole::ROLE)
-                    ->approved()
+            // : Member::role(MemberRole::ROLE)
+            : Member::approved()
                     ->orderBy('name', 'asc')
                     ->paginate();
 

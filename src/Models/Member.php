@@ -60,14 +60,14 @@ class Member extends User implements StatusInterface
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function roles()
-    {
-        return $this->belongsToMany(
-            config('laravel-permission.models.role'),
-            config('laravel-permission.table_names.user_has_roles'),
-            'user_id'
-        );
-    }
+    // public function roles()
+    // {
+    //     return $this->belongsToMany(
+    //         config('laravel-permission.models.role'),
+    //         config('laravel-permission.table_names.user_has_roles'),
+    //         'user_id'
+    //     );
+    // }
 
     /**
      * A user may have multiple direct permissions.
@@ -76,14 +76,14 @@ class Member extends User implements StatusInterface
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function permissions()
-    {
-        return $this->belongsToMany(
-            config('laravel-permission.models.permission'),
-            config('laravel-permission.table_names.user_has_permissions'),
-            'user_id'
-        );
-    }
+    // public function permissions()
+    // {
+    //     return $this->belongsToMany(
+    //         config('laravel-permission.models.permission'),
+    //         config('laravel-permission.table_names.user_has_permissions'),
+    //         'user_id'
+    //     );
+    // }
 
     /**
      * Scope a query to only include pending members (require moderation).
