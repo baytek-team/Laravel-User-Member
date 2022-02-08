@@ -28,6 +28,15 @@ class Member extends User implements StatusInterface
     ];
 
     /**
+     * Overwrite the model's morph class in favour of App\User
+     * 
+     * @return  string  The new morph class to use
+     */ 
+    public function getMorphClass() {
+        return \App\User::class;
+    }
+
+    /**
      * The "booting" method of the model.
      *
      * @return void
