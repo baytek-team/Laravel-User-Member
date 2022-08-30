@@ -41,6 +41,10 @@ class AdminController extends Controller
      */
     public function index(Request $request)
     {
+        // Get ordering criteria for members, default name and descending
+        $orderBy = $request->orderBy ?: 'name';
+        $order   = $request->order   ?: 'asc';
+
         // $this->authorize('view', Member::class);
         $this->authorize('View Member');
 
@@ -53,16 +57,19 @@ class AdminController extends Controller
             ? Member::where('name', 'like', [$search])
                     ->orWhere('email', 'like', [$search])
                     ->approved()
-                    ->orderBy('name', 'asc')
+                    ->orderBy($orderBy, $order)
                     ->paginate()
             // : Member::role(MemberRole::ROLE)
             : Member::approved()
-                    ->orderBy('name', 'asc')
+                    ->orderBy($orderBy, $order)
                     ->paginate();
 
         return view('members::member.index', [
             'members' => $members,
-            'filter' => 'active'
+            'filter' => 'active',
+            'search' => $search,
+            'orderBy' => $orderBy,
+            'currentOrder' => $order
         ]);
     }
 
