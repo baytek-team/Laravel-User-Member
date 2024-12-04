@@ -35,7 +35,9 @@ class MemberController extends Controller
 
     public function letters()
     {
-        $prefix = env('DB_PREFIX');
+        // Retrieve the database prefix from config rather than env
+        // $prefix = env('DB_PREFIX');
+        $prefix = config('database.connections.'.config('database.default').'.prefix', '');
 
         $firstNames = $lastNames = [];
 
